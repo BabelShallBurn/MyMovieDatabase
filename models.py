@@ -31,7 +31,7 @@ class Movie(db.Model):
     year = db.Column(db.Integer, nullable=False)
     poster_url = db.Column(db.String(300), nullable=True)
 
-    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def __repr__(self):
         return f'<Movie {self.title}>'
