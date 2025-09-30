@@ -1,11 +1,11 @@
 from models import db, User, Movie
 
 class DataManager():
-  # Define Crud operations as methods
-  def create_user(self, name):
-    new_user = User(name)
-    db.session.add(new_user)
-    db.session.commit()
+    # Define Crud operations as methods
+    def create_user(self, name):
+        new_user = User(name)
+        db.session.add(new_user)
+        db.session.commit()
 
     def get_users(self):
         return User.query.all()
