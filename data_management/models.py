@@ -17,9 +17,8 @@ class User(db.Model):
 class Movie(db.Model):
     __tablename__ = 'movies'
 
-    def __init__(self, title, genre, name, director, year, poster_url=None):
+    def __init__(self, title, name, director, year, poster_url=None):
         self.title = title
-        self.genre = genre
         self.name = name
         self.director = director
         self.year = year

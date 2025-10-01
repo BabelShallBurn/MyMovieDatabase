@@ -1,4 +1,4 @@
-from models import db, User, Movie
+from data_management.models import db, User, Movie
 
 class DataManager():
     # Define Crud operations as methods
@@ -9,6 +9,9 @@ class DataManager():
 
     def get_users(self):
         return User.query.all()
+    
+    def get_user_by_id(self, user_id):
+        return User.query.get(user_id)
 
     def get_movies(self, user_id):
         return Movie.query.filter_by(user_id=user_id).all()
