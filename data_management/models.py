@@ -17,8 +17,7 @@ class User(db.Model):
 class Movie(db.Model):
     __tablename__ = 'movies'
 
-    def __init__(self, title, name, director, year, poster_url=None):
-        self.title = title
+    def __init__(self, name, director, year, poster_url):
         self.name = name
         self.director = director
         self.year = year
@@ -33,4 +32,4 @@ class Movie(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     def __repr__(self):
-        return f'<Movie {self.title}>'
+        return f'<Movie {self.name}>'

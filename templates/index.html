@@ -13,10 +13,11 @@
     </div>
     {% endfor %}
 </ul>
-<div>
+<div class="form-section">
+    <h2>Add New User</h2>
     <form action="{{ url_for('create_user') }}" method="post">
         <input type="text" placeholder="user name" name="username" required><br>
-        <button type="submit" value="add user">Add User</button>
+        <button type="submit" class="btn">Add User</button>
     </form>
 </div>
 {% endblock %}

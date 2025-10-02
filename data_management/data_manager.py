@@ -21,7 +21,7 @@ class DataManager():
         db.session.commit()
 
     def update_movie(self, movie):
-
+        
         db.session.commit()
 
     def delete_movie(self, movie):

@@ -3,15 +3,16 @@
 {% block title %}Movies{% endblock %}
 
 {% block content %}
-<div href="/" class="back-link">Back to Users</div>
+<a href="/" class="back-link">&larr; Back to Users</a>
 <h1>Movies of {{ user.username }}</h1>
 {% if movies %}
-<div>
+<div class="card-list">
     {% for movie in movies %}
-    <div class="card-list">
+    <div class=" card">
         <img src="{{ movie.poster_url }}" alt="{{ movie.title }}" class="movie-poster">
 
-        <form action="{{ url_for('update_movie', movie_id=movie.id) }}" method="post" class="inline-form">
+        <form action="{{ url_for('update_movie', movie_id=movie.id, user_id=user.id) }}" method="post"
+            class="inline-form">
             <input type="text" name="title" value="{{ movie.title }}" required>
             <button type="submit" class="btn btn-small">Update</button>
         </form>
@@ -20,7 +21,8 @@
 
         <div><strong>Director:</strong> {{ movie.director }}</div>
 
-        <form action="{{ url_for('delete_movie', movie_id=movie.id) }}" method="post" class="inline-form">
+        <form action="{{ url_for('delete_movie', movie_id=movie.id, user_id=user.id) }}" method="post"
+            class="inline-form">
             <button type="submit" class="btn btn-small btn-danger"
                 onclick="return confirm('Delete this movie?');">Delete</button>
         </form>
@@ -31,4 +33,11 @@
 {% else %}
 <p>No movies found for this user.</p>
 {% endif %}
+<div class="form-section">
+    <h2>Add New Movie</h2>
+    <form action="{{ url_for('add_movie', user_id = user.id)}}" method="post">
+        <input type="text" name="title" placeholder="Movie title" required>
+        <button type="submit" class="btn">Add Movie</button>
+    </form>
+</div>
 {% endblock %}
