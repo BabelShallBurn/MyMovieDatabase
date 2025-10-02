@@ -35,7 +35,7 @@ def prepare_data_for_db(movie_title:str):
     """Prepare data for DB."""
     #search_term = input("Enter search term: ")
     response = get_data_from_api(movie_title)
-    if "Title" in response:
+    if isinstance(response, dict) and "Title" in response:
         data_to_return = {"title": response["Title"],
                           "year": int(response["Year"]),
                           "poster_url": response["Poster"],
