@@ -12,7 +12,7 @@ API_URL = "http://www.omdbapi.com"
 
 app = Flask(__name__)
 
-app.secret_key = "my_super_secret_key_123456789!"
+app.secret_key = os.getenv("APP_KEY")
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'data/movies.db')}"
