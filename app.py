@@ -76,7 +76,8 @@ def create_user() -> Any:
     """
     username: Optional[str] = request.form.get('username')
     if username:
-        data_manager.create_user(username)
+        if not data_manager.create_user(username):
+            flash("Fehler beim Erstellen des Benutzers!")
     return redirect(url_for('index'))
 
 
@@ -117,7 +118,8 @@ def add_movie(user_id: int) -> Any:
                         year=int(movie_to_add['year']),
                         poster_url=movie_to_add['poster_url'])
         new_movie.user_id = user_id
-        data_manager.add_movie(new_movie)
+        if not data_manager.add_movie(new_movie):
+            flash("Fehler beim Hinzufügen des Films!")
     except Exception as e:
         flash(f"Couldn't add movie! Error: {e}")
         return redirect(url_for('list_movies', user_id=user_id))
@@ -188,4 +190,4 @@ if __name__ == '__main__':
   with app.app_context():
     db.create_all()
 
-  app.run(host='0.0.0.0', port=5000, debug=True)
+  app.run(host='0.0.0.0', port=5001, debug=True)
