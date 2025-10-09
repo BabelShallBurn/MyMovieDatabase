@@ -13,19 +13,19 @@ A Flask web application for managing personal movie collections. Users can creat
 
 ## Installation
 
-1. Repository klonen:
+1. Clone repository:
 ```bash
 git clone https://github.com/BabelShallBurn/MyMovieDatabase.git
 cd MyMovieDatabase
 ```
 
-2. Virtuelle Umgebung erstellen und aktivieren:
+2. Create and activate virtual enviroment:
 ```bash
 python -m venv .venv
 source .venv/bin/activate  # Unter Windows: .venv\Scripts\activate
 ```
 
-3. Abhängigkeiten installieren:
+3. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
